@@ -8,6 +8,9 @@ public class Lesson1 {
 		HashSet<Integer> hash = new HashSet<Integer>();
 		hash.add(1);
 		hash.add(2);
+
+
+
 		hash.add(3);
 		hash.add(4);
 		hash.add(5);
