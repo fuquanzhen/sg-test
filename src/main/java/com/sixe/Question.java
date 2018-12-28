@@ -23,7 +23,7 @@ public class Question {
      public void getPath(String path) {
     	 this.path=path;
      }
-     public int getSize() {
+     public int question1() {
     	 return list.size();
      }
 }
