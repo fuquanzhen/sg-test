@@ -1,4 +1,6 @@
 # sg-test
 a test project
+I
+t
 
-ttttt
+XXX:tttt
