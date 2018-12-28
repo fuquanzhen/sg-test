@@ -1,6 +1,8 @@
 package com.sixe;
+
 import java.util.HashSet;
 import java.util.Iterator;
+
 public class Lesson1 {
 	public static void main(String args[]) {
 		HashSet<Integer> hash = new HashSet<Integer>();
