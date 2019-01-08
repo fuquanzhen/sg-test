@@ -15,7 +15,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.TreeMap;
 
 import com.alibaba.fastjson.JSONObject;
@@ -59,10 +58,10 @@ public class Question {
 		float avg = 0;
 		for (int i = 0; i < list1.size(); i++) {
 			sum = list1.get(i) + sum;
-			avg = sum / list1.size();
 		}
+		avg = sum / list1.size();
 		float z = 0;
-		if ((list1.size() / 2) != 0) {
+		if ((list1.size() % 2) != 0) {
 			z = list1.get((list1.size() - 1) / 2);
 		} else {
 			z = (list1.get((list1.size()) / 2 - 1) + list1.get((list1.size() / 2))) / 2;
@@ -144,7 +143,7 @@ public class Question {
 		return map;
 	}
 
-	public Map<String, User> question7() {
+	public List<Entry<String, User>> question7() {
 		Map<String, User> map = new HashMap<String, User>();
 		for (JSONObject s : list) {
 			Object uid = s.get("uid");
@@ -159,7 +158,21 @@ public class Question {
 				map.put(sl, user);
 			}
 		}
-		return map;
+		List<Entry<String, User>> listss = new ArrayList<Entry<String, User>>(map.entrySet());
+		Collections.sort(listss, new Comparator<Map.Entry<String, User>>() {
+			public int compare(Map.Entry<String, User> o1, Map.Entry<String, User> o2) {
+				int q1 = o1.getValue().getPostcount();
+				int q2 = o2.getValue().getPostcount();
+				int p = q2 - q1;
+				if (p > 0) {
+					return 1;
+				} else if (p == 0) {
+					return 0;
+				} else
+					return -1;
+			}
+		});
+		return listss;
 	}
 
 	public UserFactory question8() {
@@ -181,22 +194,24 @@ public class Question {
 		return factory;
 	}
 
-	public void question9() {
+	public UserFactory question10() {
 		Map<String, User> map = new HashMap<String, User>();
 		for (JSONObject s : list) {
-			Object uid = s.get("uid");
+			Note note = new Note(s);
 			int postcount = 1;
-			String sl = uid.toString();
-			if (map.containsKey(sl)) {
-				User user = map.get(sl);
-				user.add();
-				map.put(sl, user);
+			Object uid = s.get("uid");
+			String str = uid.toString();
+			if (map.containsKey(str)) {
+				User user = map.get(str);
+				user.add(note);
 			} else {
-				User user = new User(sl, postcount);
-				map.put(sl, user);
+				List<Note> list1 = new ArrayList<Note>();
+				list1.add(note);
+				User user = new User(str, postcount, list1);
+				map.put(str, user);
 			}
 		}
-		Set<Entry<String, User>> set = new HashSet<Entry<String, User>>(map.entrySet());
-		UserFactory1 fac = new UserFactory1(map);
+		UserFactory result = new UserFactory(map);
+		return result;
 	}
 }

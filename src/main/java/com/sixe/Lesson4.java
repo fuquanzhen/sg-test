@@ -21,4 +21,4 @@ public class Lesson4 {
 		System.out.println(map.size());
 		System.out.println(map.get("zhao"));
 	}
-}
+} 

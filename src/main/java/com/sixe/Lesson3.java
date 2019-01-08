@@ -23,3 +23,4 @@ public class Lesson3 {
 		System.out.println(map.get("zhao"));
 	}
 }
+ 
