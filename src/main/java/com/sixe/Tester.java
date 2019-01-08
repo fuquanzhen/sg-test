@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class Tester {
 	public static void main(String args[]) {
-		String[] s= new String[10];
+		String[] s = new String[10];
 		System.out.println(s.length);
 //		String 
 		s[0] = "a";
@@ -18,7 +18,7 @@ public class Tester {
 //		{"a","b","c","d","e"};
 		System.out.println(s.length);
 		System.out.println(s[0]);
-		s[5]="f";
+		s[5] = "f";
 		List<String> list = new ArrayList<String>();
 		Set<String> set = new HashSet<String>();
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -30,7 +30,7 @@ public class Tester {
 		set.add("h");
 		set.add("a");
 		set.add("b");
-		set.add("d");
+		set.add("d"); 
 		set.add("c");
 		set.add("e");
 		map.put("a", 1);
@@ -50,7 +50,7 @@ public class Tester {
 			System.out.println(str);
 		}
 		System.out.println(set);
-		ArrayList <String> list1 = new ArrayList<String>(set);
+		ArrayList<String> list1 = new ArrayList<String>(set);
 		System.out.println(list1.get(0));
 		System.out.println(set.size());
 		Iterator<String> itr1 = set.iterator();
