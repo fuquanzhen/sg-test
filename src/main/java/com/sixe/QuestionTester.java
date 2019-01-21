@@ -63,21 +63,21 @@ public class QuestionTester {
 	}
 
 	public static void solve(String path, List<Entry<String, Integer>> listss) throws IOException {
+		String line = System.getProperty("line.separator");
+		StringBuffer str = new StringBuffer();
+		FileWriter fw = new FileWriter(path, true);
 		for (Entry<String, Integer> set : listss) {
 			HashMap<String, Integer> newmap = new HashMap<String, Integer>();
 			newmap.put(set.getKey(), set.getValue());
-			String line = System.getProperty("line.separator");
-			StringBuffer str = new StringBuffer();
-			FileWriter fw = new FileWriter(path, true);
 			Set<Entry<String, Integer>> entrySet = newmap.entrySet();
 			Iterator<Entry<String, Integer>> iterator = entrySet.iterator();
 			while (iterator.hasNext()) {
 				Map.Entry<String, Integer> entry = (Map.Entry<String, Integer>) iterator.next();
 				str.append(entry.getKey() + " \t " + entry.getValue()).append(line);
 			}
-			fw.write(str.toString());
-			fw.close();
 		}
+		fw.write(str.toString());
+		fw.close();
 	}
 
 	public static void solve1(String path, Map<Date, Integer> map) throws IOException {
@@ -96,20 +96,20 @@ public class QuestionTester {
 	}
 
 	public static void solve2(String path, List<Entry<String, User>> listss) throws IOException {
+		String line = System.getProperty("line.separator");
+		StringBuffer str = new StringBuffer();
+		FileWriter fw = new FileWriter(path, true);
 		for (Entry<String, User> set : listss) {
 			HashMap<String, User> newmap = new HashMap<String, User>();
 			newmap.put(set.getKey(), set.getValue());
-			String line = System.getProperty("line.separator");
-			StringBuffer str = new StringBuffer();
-			FileWriter fw = new FileWriter(path, true);
 			Set<Entry<String, User>> entrySet = newmap.entrySet();
 			Iterator<Entry<String, User>> iterator = entrySet.iterator();
 			while (iterator.hasNext()) {
 				Map.Entry<String, User> entry = (Map.Entry<String, User>) iterator.next();
 				str.append(entry.getKey() + "\t" + entry.getValue().getPostcount()).append(line);
 			}
-			fw.write(str.toString());
-			fw.close();
 		}
+		fw.write(str.toString());
+		fw.close();
 	}
 }

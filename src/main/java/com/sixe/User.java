@@ -20,10 +20,6 @@ public class User {
 		return notes;
 	}
 
-	public void setNotes(List<Note> notes) {
-		this.notes = notes;
-	}
-
 	public String getUid() {
 		return uid;
 	}
@@ -41,8 +37,7 @@ public class User {
 		postcount++;
 	}
 
-	public String toSring() {
-		String str = String.valueOf(this.notes);
-		return str;
+	public String toString() {
+		return getUid();
 	}
 }

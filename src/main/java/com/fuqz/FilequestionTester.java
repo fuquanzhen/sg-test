@@ -52,39 +52,45 @@ public class FilequestionTester {
 		List<Entry<String, User>> listQ7 = f.question7();
 		FilequestionTester.solve2(pathQ7, listQ7);
 		UserFactory rel = f.question8();
-		System.out.println(rel.getUser("5584922654"));
-		System.out.println(rel.delUser("2566469601"));
+		System.out.println(rel.getUser("5584922654").getUid());
+		System.out.println(rel.delUser("2566469601").getUid());
 		User user = new User("5797346121", 3);
-		System.out.println(rel.updataUser(user));
+		System.out.println(rel.updataUser(user).getUid());
 		List<User> list11 = new ArrayList<User>();
 		User user1 = new User("3885321891", 3);
 		User user2 = new User("5797346121", 4);
 		list11.add(user1);
 		list11.add(user2);
-		System.out.println(list11);
+		for (User user11 : list11) {
+			System.out.println(user11.getUid());
+			System.out.println(user11.getPostcount());
+		}
 		List<String> list7 = new ArrayList<String>();
 		list7.add("6121866144");
 		list7.add("6020875579");
 		list7.add("2526964597");
-		System.out.println(rel.getMulUser(list7));
+		for (User user12 : rel.getMulUser(list7)) {
+			System.out.println(user12.getUid());
+			System.out.println(user12.getPostcount());
+		}
 	}
 
 	public static void solve(String path, List<Entry<String, Integer>> lists) throws IOException {
+		String line = System.getProperty("line.separator");
+		StringBuffer str = new StringBuffer();
+		FileWriter fw = new FileWriter(path, true);
 		for (Entry<String, Integer> set : lists) {
 			Map<String, Integer> newmap = new HashMap<String, Integer>();
 			newmap.put(set.getKey(), set.getValue());
-			String line = System.getProperty("line.separator");
-			StringBuffer str = new StringBuffer();
-			FileWriter fw = new FileWriter(path, true);
 			Set<Entry<String, Integer>> entrySet = newmap.entrySet();
 			Iterator<Entry<String, Integer>> it = entrySet.iterator();
 			while (it.hasNext()) {
 				Map.Entry<String, Integer> entry = (Map.Entry<String, Integer>) it.next();
 				str.append(entry.getKey() + "\t" + entry.getValue()).append(line);
 			}
-			fw.write(str.toString());
-			fw.close();
 		}
+		fw.write(str.toString());
+		fw.close();
 	}
 
 	public static void solve1(String path, Map<Date, Integer> map) throws IOException {
@@ -103,20 +109,20 @@ public class FilequestionTester {
 	}
 
 	public static void solve2(String path, List<Entry<String, User>> lists) throws IOException {
+		String line = System.getProperty("line.separator");
+		StringBuffer str = new StringBuffer();
+		FileWriter fw = new FileWriter(path, true);
 		for (Entry<String, User> set : lists) {
 			Map<String, User> newmap = new HashMap<String, User>();
 			newmap.put(set.getKey(), set.getValue());
-			String line = System.getProperty("line.separator");
-			StringBuffer str = new StringBuffer();
-			FileWriter fw = new FileWriter(path, true);
 			Set<Entry<String, User>> entrySet = newmap.entrySet();
 			Iterator<Entry<String, User>> it = entrySet.iterator();
 			while (it.hasNext()) {
 				Map.Entry<String, User> entry = (Map.Entry<String, User>) it.next();
-				str.append(entry.getKey() + "\t" + entry.getValue().getPostcount());
+				str.append(entry.getKey() + "\t" + entry.getValue().getPostcount()).append(line);
 			}
-			fw.write(str.toString());
-			fw.close();
 		}
+		fw.write(str.toString());
+		fw.close();
 	}
 }

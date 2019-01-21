@@ -194,7 +194,7 @@ public class Question {
 		return factory;
 	}
 
-	public UserFactory question10() {
+	public UserFactory question9() {
 		Map<String, User> map = new HashMap<String, User>();
 		for (JSONObject s : list) {
 			Note note = new Note(s);

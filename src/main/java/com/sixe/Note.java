@@ -1,5 +1,6 @@
 package com.sixe;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.alibaba.fastjson.JSONObject;
@@ -47,8 +48,9 @@ public class Note {
 		this.pub_time = json.getDate("pub_time");
 	}
 
-	public Date getPub_time() {
-		return pub_time;
+	public String getPub_time() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		return format.format(pub_time);
 	}
 
 	public String getUid() {

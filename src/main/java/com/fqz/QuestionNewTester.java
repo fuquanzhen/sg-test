@@ -39,28 +39,28 @@ public class QuestionNewTester {
 		List<Entry<String, User>> listQ7 = q.question7();
 		QuestionNewTester.solve2(pathQ7, listQ7);
 		Userfactory uf = q.question8();
-		System.out.println(uf.getUser("5584922654"));
-		System.out.println(uf.delUser("5753546854"));
+		System.out.println(uf.getUser("5584922654").getPostcount());
+		System.out.println(uf.delUser("5753546854").getUid());
 		User user = new User("3974492648", 12);
-		System.out.println(uf.updataUser(user));
+		System.out.println(uf.updataUser(user).getUid());
 	}
 
 	public static void solve(String path, List<Entry<String, Integer>> lists) throws IOException {
+		String line = System.getProperty("line.separator");
+		StringBuffer str = new StringBuffer();
+		FileWriter fw = new FileWriter(path, true);
 		for (Entry<String, Integer> set : lists) {
 			Map<String, Integer> newmap = new HashMap<String, Integer>();
 			newmap.put(set.getKey(), set.getValue());
-			String line = System.getProperty("line.separator");
-			StringBuffer str = new StringBuffer();
-			FileWriter fw = new FileWriter(path, true);
 			Set<Entry<String, Integer>> entrySet = newmap.entrySet();
 			Iterator<Entry<String, Integer>> iterator = entrySet.iterator();
 			while (iterator.hasNext()) {
 				Map.Entry<String, Integer> entry = (Map.Entry<String, Integer>) iterator.next();
 				str.append(entry.getKey() + "\t" + entry.getValue()).append(line);
 			}
-			fw.write(str.toString());
-			fw.close();
 		}
+		fw.write(str.toString());
+		fw.close();
 	}
 
 	public static void solve1(String path, Map<Date, Integer> map) throws IOException {
@@ -79,20 +79,20 @@ public class QuestionNewTester {
 	}
 
 	public static void solve2(String path, List<Entry<String, User>> lists) throws IOException {
+		String line = System.getProperty("line.separator");
+		StringBuffer str = new StringBuffer();
+		FileWriter fw = new FileWriter(path, true);
 		for (Entry<String, User> set : lists) {
 			HashMap<String, User> newmap = new HashMap<String, User>();
 			newmap.put(set.getKey(), set.getValue());
-			String line = System.getProperty("line.separator");
-			StringBuffer str = new StringBuffer();
-			FileWriter fw = new FileWriter(path, true);
 			Set<Entry<String, User>> entry = newmap.entrySet();
 			Iterator<Entry<String, User>> iterator = entry.iterator();
 			while (iterator.hasNext()) {
 				Map.Entry<String, User> entry2 = (Map.Entry<String, User>) iterator.next();
 				str.append(entry2.getKey() + "\t" + entry2.getValue().getPostcount()).append(line);
 			}
-			fw.write(str.toString());
-			fw.close();
 		}
+		fw.write(str.toString());
+		fw.close();
 	}
 }
