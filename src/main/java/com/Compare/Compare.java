@@ -16,7 +16,7 @@ public class Compare {
 	public ArrayList<Integer> read(String path) throws IOException {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		FileInputStream fis = new FileInputStream(path);
-		InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+		InputStreamReader isr = new InputStreamReader(fis, "UTF8");
 		BufferedReader br = new BufferedReader(isr);
 		String line = null;
 		while ((line = br.readLine()) != null) {
