@@ -31,7 +31,6 @@ public class Try {
 			Object content = json.get("content");
 			String str = name.toString();
 			String stri = content.toString();
-			List<String> list = new ArrayList<String>();
 			if (!map.containsKey(str)) {
 				map.put(str, new ArrayList<String>());
 			}

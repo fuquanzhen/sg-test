@@ -75,7 +75,7 @@ public class QuestionTester {
 	public static void solve(String path, List<Entry<String, Integer>> listss) throws IOException {
 		String line = System.getProperty("line.separator");
 		StringBuffer str = new StringBuffer();
-		FileWriter fw = new FileWriter(path, true);
+		FileWriter fw = new FileWriter(path, false);
 		for (Entry<String, Integer> set : listss) {
 			Map<String, Integer> newmap = new HashMap<String, Integer>();
 			newmap.put(set.getKey(), set.getValue());
@@ -93,7 +93,7 @@ public class QuestionTester {
 	public static void solveone(String path, Map<Date, Integer> map) throws IOException {
 		String line = System.getProperty("line.separator");
 		StringBuffer str = new StringBuffer();
-		FileWriter fw = new FileWriter(path, true);
+		FileWriter fw = new FileWriter(path, false);
 		Set<Entry<Date, Integer>> entrySet = map.entrySet();
 		Iterator<Entry<Date, Integer>> it = entrySet.iterator();
 		while (it.hasNext()) {
@@ -108,7 +108,7 @@ public class QuestionTester {
 	public static void solvetwo(String path, List<Entry<String, User>> lists) throws IOException {
 		String line = System.getProperty("line.separator");
 		StringBuffer str = new StringBuffer();
-		FileWriter fw = new FileWriter(path, true);
+		FileWriter fw = new FileWriter(path, false);
 		for (Entry<String, User> set : lists) {
 			Map<String, User> newmap = new HashMap<String, User>();
 			newmap.put(set.getKey(), set.getValue());
